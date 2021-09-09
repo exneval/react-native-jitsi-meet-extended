@@ -314,7 +314,7 @@ This will start Jitsi meet as a view inside react-native.
 | toolBoxAlwaysVisible   | boolean   | true                | Make toolbox always visible or not                                                                                                                     |
 | meetingPasswordEnabled | boolean   | true                | Enable or disable meeting password                                                                                                                     |
 | pipModeEnabled         | boolean   | false               | **Only for activity mode**, This flag is not  available in JitsiMeet view mode                                                                         |
-| userInfo               | Object    |                     | This can have three keys as follows ```    userInfo:{      displayName: "APJ",      email: "test@example.com",      avatarURL: "valid URL"     } ``` |
+| userInfo               | Object    |                     | This can have three keys as follows ```    userInfo:{      displayName: "APJ",      email: "test@example.com",      avatar: "valid URL"     } ``` |
 
 ### Supported events (only in JitsiMeetView)
 1) **onConferenceJoined**
