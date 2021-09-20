@@ -88,6 +88,8 @@ public class JitsiMeetExtendedModule extends ReactContextBaseJavaModule {
          Boolean toolBoxAlwaysVisible = true;
          Boolean meetingPasswordEnabled = true;
          Boolean pipModeEnabled = true;
+         Boolean audioMuted = false;
+         Boolean videoMuted = false;
          URL serverUrl = null;
          try {
            serverUrl = new URL(jitsiServerUrl);
@@ -182,6 +184,18 @@ public class JitsiMeetExtendedModule extends ReactContextBaseJavaModule {
              }
            }
 
+           if (options.hasKey("audioMuted")) {
+             if (options.getBoolean("audioMuted") == true || (options.getBoolean("audioMuted") == false)) {
+               audioMuted = options.getBoolean("audioMuted");
+             }
+           }
+
+           if (options.hasKey("videoMuted")) {
+             if (options.getBoolean("videoMuted") == true || (options.getBoolean("videoMuted") == false)) {
+               videoMuted = options.getBoolean("videoMuted");
+             }
+           }
+
            // check for user info
            if (options.hasKey("userInfo")) {
              ReadableMap user = options.getMap("userInfo");
@@ -221,8 +235,8 @@ public class JitsiMeetExtendedModule extends ReactContextBaseJavaModule {
            .setFeatureFlag("toolbox.alwaysVisible", toolBoxAlwaysVisible)
            .setFeatureFlag("meeting-password.enabled", meetingPasswordEnabled)
            // Settings for audio and video
-           //.setAudioMuted(true)
-           //.setVideoMuted(true)
+           .setAudioMuted(audioMuted)
+           .setVideoMuted(videoMuted)
            .build();
 
          // Launch the new activity with the given options. The launch() method takes care
